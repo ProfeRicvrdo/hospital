@@ -59,11 +59,14 @@ public class PacienteController {
         }
     }
 
-
-
-
-
-
-
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> elimianr (@PathVariable Long id) {
+        try{
+            pacienteService.delete(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
 }
